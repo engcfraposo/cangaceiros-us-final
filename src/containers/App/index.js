@@ -1,9 +1,9 @@
 import Home from '../../components/pages/Home'
-import Terms from '../../components/pages/Terms'
+import ForgotPassword from '../../components/pages/ForgotPassword'
 
 function App() {
   return (
-    <Terms />
+    <ForgotPassword />
   );
 }
 

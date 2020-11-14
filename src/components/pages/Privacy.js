@@ -5,9 +5,9 @@ import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import Markdown from '../atoms/Markdown';
 import Typography from '../atoms/Typography';
-import AppAppBar from '../modules/views/AppAppBar';
-import privacy from '../modules/views/privacy.md';
-import AppFooter from '../modules/views/AppFooter';
+import AppAppBar from '../organisms/views/AppAppBar';
+import privacy from '../organisms/views/privacy.md';
+import AppFooter from '../organisms/views/AppFooter';
 
 function Privacy() {
   return (
