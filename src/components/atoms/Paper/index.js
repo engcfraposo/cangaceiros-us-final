@@ -4,21 +4,7 @@ import PropTypes from 'prop-types';
 import MuiPaper from '@material-ui/core/Paper';
 import { capitalize } from '@material-ui/core/utils';
 import { withStyles } from '@material-ui/core/styles';
-
-const styles = (theme) => ({
-  backgroundLight: {
-    backgroundColor: theme.palette.secondary.light,
-  },
-  backgroundMain: {
-    backgroundColor: theme.palette.secondary.main,
-  },
-  backgroundDark: {
-    backgroundColor: theme.palette.secondary.dark,
-  },
-  padding: {
-    padding: theme.spacing(1),
-  },
-});
+import Styles from 'style.js'
 
 function Paper(props) {
   const { background = 'light', classes, className, padding = false, ...other } = props;

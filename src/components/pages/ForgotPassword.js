@@ -3,7 +3,7 @@ import withRoot from '../modules/withRoot';
 import React from 'react';
 import { Field, Form, FormSpy } from 'react-final-form';
 import { makeStyles } from '@material-ui/core/styles';
-import Typography from '../atoms/Typography';
+import Typography from '../atoms/Typography/Typography';
 import AppFooter from '../organisms/views/AppFooter';
 import AppAppBar from '../organisms/views/AppAppBar';
 import AppForm from '../organisms/views/AppForm';
@@ -12,18 +12,6 @@ import RFTextField from '../organisms/form/RFTextField';
 import FormButton from '../organisms/form/FormButton';
 import FormFeedback from '../organisms/form/FormFeedback';
 
-const useStyles = makeStyles((theme) => ({
-  form: {
-    marginTop: theme.spacing(6),
-  },
-  button: {
-    marginTop: theme.spacing(3),
-    marginBottom: theme.spacing(2),
-  },
-  feedback: {
-    marginTop: theme.spacing(2),
-  },
-}));
 
 function ForgotPassword() {
   const classes = useStyles();
