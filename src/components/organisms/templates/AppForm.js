@@ -4,7 +4,7 @@ import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import { withStyles } from '@material-ui/core/styles';
 
-import Paper from '../atoms/Paper';
+import Paper from '../../atoms/Paper';
 
 const styles = (theme) => ({
   root: {

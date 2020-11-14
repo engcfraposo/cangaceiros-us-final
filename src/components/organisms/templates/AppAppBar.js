@@ -4,8 +4,8 @@ import clsx from 'clsx';
 import { withStyles } from '@material-ui/core/styles';
 import Link from '@material-ui/core/Link';
 
-import AppBar from '../atoms/AppBar';
-import Toolbar, { styles as toolbarStyles } from '../atoms/Toolbar';
+import AppBar from '../../atoms/AppBar';
+import Toolbar, { styles as toolbarStyles } from '../../atoms/Toolbar';
 
 const styles = (theme) => ({
   title: {
