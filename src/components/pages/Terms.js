@@ -5,9 +5,9 @@ import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import Markdown from '../atoms/Markdown';
 import Typography from '../atoms/Typography';
-import AppAppBar from '../organisms/templates/AppAppBar';
-import terms from '../organisms/templates/terms.md';
-import AppFooter from '../organisms/templates/AppFooter';
+import AppAppBar from '../templates/AppAppBar';
+import terms from '../templates/terms.md';
+import AppFooter from '../templates/AppFooter';
 
 function Terms() {
   return (
