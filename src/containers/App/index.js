@@ -1,8 +1,8 @@
-import Home from '../../components/pages/Home'
+import Checkout from '../../components/pages/Checkout'
 
 function App() {
   return (
-    <Home />
+    <Checkout />
   );
 }
 
