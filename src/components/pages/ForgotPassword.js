@@ -1,13 +1,14 @@
-import withRoot from '../modules/withRoot';
+import withRoot from '../../constants/withRoot';
 // --- Post bootstrap -----
 import React from 'react';
 import { Field, Form, FormSpy } from 'react-final-form';
 import { makeStyles } from '@material-ui/core/styles';
-import Typography from '../atoms/Typography/Typography';
-import AppFooter from '../organisms/views/AppFooter';
-import AppAppBar from '../organisms/views/AppAppBar';
-import AppForm from '../organisms/views/AppForm';
-import { email, required } from '../organisms/form/validation';
+
+import Typography from '../atoms/Typography';
+import AppFooter from '../organisms/templates/AppFooter';
+import AppAppBar from '../organisms/templates/AppAppBar';
+import AppForm from '../organisms/templates/AppForm';
+import { email, required } from '../../constants/validation';
 import RFTextField from '../organisms/form/RFTextField';
 import FormButton from '../organisms/form/FormButton';
 import FormFeedback from '../organisms/form/FormFeedback';

@@ -1,14 +1,14 @@
-import withRoot from '../modules/withRoot';
+import withRoot from '../../constants/withRoot';
 // --- Post bootstrap -----
 import React from 'react';
-import ProductCategories from '../organisms/views/ProductCategories';
-import ProductSmokingHero from '../organisms/views/ProductSmokingHero';
-import AppFooter from '../organisms/views/AppFooter';
-import ProductHero from '../organisms/views/ProductHero';
-import ProductValues from '../organisms/views/ProductValues';
-import ProductHowItWorks from '../organisms/views/ProductHowItWorks';
-import ProductCTA from '../organisms/views/ProductCTA';
-import AppAppBar from '../organisms/views/AppAppBar';
+import ProductCategories from '../organisms/templates/ProductCategories';
+import ProductSmokingHero from '../organisms/templates/ProductSmokingHero';
+import AppFooter from '../organisms/templates/AppFooter';
+import ProductHero from '../organisms/templates/ProductHero';
+import ProductValues from '../organisms/templates/ProductValues';
+import ProductHowItWorks from '../organisms/templates/ProductHowItWorks';
+import ProductCTA from '../organisms/templates/ProductCTA';
+import AppAppBar from '../organisms/templates/AppAppBar';
 
 function Index() {
   return (
