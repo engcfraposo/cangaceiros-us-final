@@ -1,13 +1,13 @@
-import withRoot from './modules/withRoot';
+import withRoot from '../modules/withRoot';
 // --- Post bootstrap -----
 import React from 'react';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
-import Markdown from './modules/components/Markdown';
-import Typography from './modules/components/Typography';
-import AppAppBar from './modules/views/AppAppBar';
-import terms from './modules/views/terms.md';
-import AppFooter from './modules/views/AppFooter';
+import Markdown from '../atoms/Markdown';
+import Typography from '../atoms/Typography';
+import AppAppBar from '../organisms/views/AppAppBar';
+import terms from '../organisms/views/terms.md';
+import AppFooter from '../organisms/views/AppFooter';
 
 function Terms() {
   return (
