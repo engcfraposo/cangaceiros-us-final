@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
-import Button from '../../atoms/Button';
-import Typography from '../../atoms/Typography';
+import Button from '../atoms/Button';
+import Typography from '../atoms/Typography';
 
 const styles = (theme) => ({
   root: {
