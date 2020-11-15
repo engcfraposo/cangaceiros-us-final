@@ -8,8 +8,8 @@ import Privacy from '../../components/pages/Privacy';
 import Review from '../../components/pages/Review';
 import Terms from '../../components/pages/Terms';
 import AddressForm from '../../components/pages/AddressForm';
-import SignIn from '../../components/pages/SingIn';
-import SignOut from '../../components/pages/SingOut';
+import SignIn from '../../components/pages/SignIn';
+import SignUp from '../../components/pages/SignUp';
 import PaymentForm from '../../components/pages/PaymentForm'
 
 export default function Routes() {
@@ -17,7 +17,7 @@ export default function Routes() {
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/SignIn" component={SignIn} />
-      <Route exact path="/SignOut" component={SignOut} />
+      <Route exact path="/SignUp" component={SignUp} />
       <Route exact path="/PaymentForm" component={PaymentForm} />
       <Route exact path="/CheckOut" component={CheckOut} />
       <Route exact path="/ForgotPassword" component={ForgotPassword} />

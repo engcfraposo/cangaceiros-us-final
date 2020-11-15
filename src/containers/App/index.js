@@ -1,8 +1,8 @@
-import Home from '../../components/pages/Home'
+import Routes from '../_Routes'
 
 function App() {
   return (
-    <Home />
+    <Routes />
   );
 }
 

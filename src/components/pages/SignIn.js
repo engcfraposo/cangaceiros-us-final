@@ -1,4 +1,4 @@
-import withRoot from '../modules/withRoot';
+import withRoot from '../../constants/withRoot';
 // --- Post bootstrap -----
 import React from 'react';
 import { Field, Form, FormSpy  } from 'react-final-form';
@@ -8,7 +8,7 @@ import Typography from '../atoms/Typography';
 import AppFooter from '../templates/AppFooter';
 import AppAppBar from '../templates/AppAppBar';
 import AppForm from '../templates/AppForm';
-import { email, required } from '../organisms/form/validation';
+import { email, required } from '../../constants/validation';
 import RFTextField from '../organisms/form/RFTextField';
 import FormButton from '../organisms/form/FormButton';
 import FormFeedback from '../organisms/form/FormFeedback';

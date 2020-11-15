@@ -8,9 +8,9 @@ import AppFooter from '../templates/AppFooter';
 import AppAppBar from '../templates/AppAppBar';
 import AppForm from '../templates/AppForm';
 import { email, required } from '../../constants/validation';
-import RFTextField from '../form/RFTextField';
-import FormButton from '../form/FormButton';
-import FormFeedback from '../form/FormFeedback';
+import RFTextField from '../organisms/form/RFTextField';
+import FormButton from '../organisms/form/FormButton';
+import FormFeedback from '../organisms/form/FormFeedback';
 
 const useStyles = makeStyles((theme) => ({
   form: {
