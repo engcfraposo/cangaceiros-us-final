@@ -62,10 +62,8 @@ function ProductHero(props) {
         variant="contained"
         size="large"
         className={classes.button}
-        component="button"
-
-        // href="/premium-themes/onepirate/sign-up/"
-        onClick={handleClick}
+        component="a"
+        href="/signup"
       >
         Registre-se
       </Button>

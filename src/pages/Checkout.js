@@ -19,7 +19,7 @@ function Copyright() {
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        Cangaceiros US
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -64,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const steps = ['Shipping address', 'Payment details', 'Review your order'];
+const steps = ['Endereço de entrega', 'Detalhes do pagamento', 'Revise seu pedido'];
 
 function getStepContent(step) {
   switch (step) {
@@ -75,7 +75,7 @@ function getStepContent(step) {
     case 2:
       return <Review />;
     default:
-      throw new Error('Unknown step');
+      throw new Error('Passo desconhecido');
   }
 }
 
@@ -97,7 +97,7 @@ export default function Checkout() {
       <AppBar position="absolute" color="default" className={classes.appBar}>
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
-            Company name
+            Cangaceiros US
           </Typography>
         </Toolbar>
       </AppBar>
@@ -117,11 +117,11 @@ export default function Checkout() {
             {activeStep === steps.length ? (
               <React.Fragment>
                 <Typography variant="h5" gutterBottom>
-                  Thank you for your order.
+                Obrigado pelo seu pedido.
                 </Typography>
                 <Typography variant="subtitle1">
-                  Your order number is #2001539. We have emailed your order confirmation, and will
-                  send you an update when your order has shipped.
+                O número do seu pedido é # 2001539. Enviamos a confirmação do seu pedido por e-mail e iremos
+                enviará a você uma atualização quando seu pedido for enviado.
                 </Typography>
               </React.Fragment>
             ) : (
@@ -130,7 +130,7 @@ export default function Checkout() {
                 <div className={classes.buttons}>
                   {activeStep !== 0 && (
                     <Button onClick={handleBack} className={classes.button}>
-                      Back
+                      Voltar
                     </Button>
                   )}
                   <Button

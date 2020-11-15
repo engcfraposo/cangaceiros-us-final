@@ -53,11 +53,11 @@ function SignIn() {
       <AppForm>
         <React.Fragment>
           <Typography variant="h3" gutterBottom marked="center" align="center">
-            Sign In
+            Logar
           </Typography>
           <Typography variant="body2" align="center">
             {'Not a member yet? '}
-            <Link href="/premium-themes/onepirate/sign-up/" align="center" underline="always">
+            <Link href="/singup" align="center" underline="always">
               Sign Up here
             </Link>
           </Typography>
@@ -71,7 +71,7 @@ function SignIn() {
                 component={RFTextField}
                 disabled={submitting || sent}
                 fullWidth
-                label="Email"
+                label="E-mail"
                 margin="normal"
                 name="email"
                 required
@@ -83,9 +83,9 @@ function SignIn() {
                 component={RFTextField}
                 disabled={submitting || sent}
                 required
-                name="password"
+                name="Senha"
                 autoComplete="current-password"
-                label="Password"
+                label="Senha"
                 type="password"
                 margin="normal"
               />
@@ -105,14 +105,14 @@ function SignIn() {
                 color="secondary"
                 fullWidth
               >
-                {submitting || sent ? 'In progress…' : 'Sign In'}
+                {submitting || sent ? 'Em progresso...' : 'Logar'}
               </FormButton>
             </form>
           )}
         </Form>
         <Typography align="center">
-          <Link underline="always" href="/premium-themes/onepirate/forgot-password/">
-            Forgot password?
+          <Link underline="always" href="/signup/">
+            Não tem cadastro?
           </Link>
         </Typography>
       </AppForm>
