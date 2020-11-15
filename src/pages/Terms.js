@@ -11,19 +11,23 @@ import AppFooter from '../components/templates/AppFooter';
 
 function Terms() {
   return (
-    <React.Fragment>
+    <>
       <AppAppBar />
-      <Container>
-        <Box mt={7} mb={12}>
-          <Typography variant="h3" gutterBottom marked="center" align="center">
-            Terms
+      <React.Fragment>
+        <AppAppBar />
+        <Container>
+          <Box mt={7} mb={12}>
+            <Typography variant="h3" gutterBottom marked="center" align="center">
+              Terms
           </Typography>
-          <Markdown>{terms}</Markdown>
-        </Box>
-      </Container>
-      <AppFooter />
-    </React.Fragment>
+            <Markdown>{terms}</Markdown>
+          </Box>
+        </Container>
+        <AppFooter />
+      </React.Fragment>
+    </>
   );
+
 }
 
 export default withRoot(Terms);

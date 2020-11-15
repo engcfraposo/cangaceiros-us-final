@@ -11,6 +11,8 @@ import AppFooter from '../components/templates/AppFooter';
 
 function Privacy() {
   return (
+    <>
+    <AppAppBar />
     <React.Fragment>
       <AppAppBar />
       <Container>
@@ -23,6 +25,7 @@ function Privacy() {
       </Container>
       <AppFooter />
     </React.Fragment>
+  </>
   );
 }
 
