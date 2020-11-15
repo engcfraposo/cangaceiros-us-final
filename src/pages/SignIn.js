@@ -55,7 +55,13 @@ function SignIn() {
           <Typography variant="h3" gutterBottom marked="center" align="center">
             Logar
           </Typography>
-          </React.Fragment>
+          <Typography variant="body2" align="center">
+            {'Not a member yet? '}
+            <Link href="/singup" align="center" underline="always">
+              Sign Up here
+            </Link>
+          </Typography>
+        </React.Fragment>
         <Form onSubmit={handleSubmit} subscription={{ submitting: true }} validate={validate}>
           {({ handleSubmit2, submitting }) => (
             <form onSubmit={handleSubmit2} className={classes.form} noValidate>

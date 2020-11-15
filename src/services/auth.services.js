@@ -79,8 +79,8 @@ export class AuthService {
      * Verificar se usuário está logado
     */
     isLogged() {
-        // const tokenCookie = getCookie('token');
-        // return Boolean(tokenCookie);
-        return true
+        const tokenCookie = getCookie('token');
+        {/**Boolean(tokenCookie)**/}
+        return true;
     }
 }
