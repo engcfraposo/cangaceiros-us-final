@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '../atoms/Typography';
+import whatsapp from '../../assets/img/svg/whatsapp.svg'
 
 const styles = (theme) => ({
   root: {
@@ -35,13 +36,15 @@ function ProductSmokingHero(props) {
     <Container className={classes.root} component="section">
       <Button className={classes.button}>
         <Typography variant="h4" component="span">
-          Got any questions? Need help?
+          Você precisa de ajuda?
         </Typography>
       </Button>
       <Typography variant="subtitle1" className={classes.link}>
-        We are here to help. Get in touch!
+        Entre em contato conosco agora pelo Whatsapp.
       </Typography>
-      <img src="/static/themes/onepirate/producBuoy.svg" className={classes.buoy} alt="buoy" />
+      <a href="https://api.whatsapp.com/send?phone=5584999255446" target="_blank" rel="noreferrer noopener">
+      <img src={whatsapp} className={classes.buoy} alt="buoy" />
+      </a>
     </Container>
   );
 }

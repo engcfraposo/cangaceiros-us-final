@@ -50,7 +50,7 @@ function AppAppBar(props) {
             className={classes.title}
             href="/"
           >
-            {'onepirate'}
+            {'Cangaceiros US'}
           </Link>
           <div className={classes.right}>
             <Link
@@ -58,17 +58,18 @@ function AppAppBar(props) {
               variant="h6"
               underline="none"
               className={classes.rightLink}
-              href="/SignIn"
+              href="./sign-in/"
             >
-              {'Sign In'}
+              {'Logar'}
             </Link>
             <Link
               variant="h6"
+              style= {{color:'#F05027'}}
               underline="none"
               className={clsx(classes.rightLink, classes.linkSecondary)}
-              href="/SignUp/"
+              href="./sign-up/"
             >
-              {'Sign Up'}
+              {'Registre-se'}
             </Link>
           </div>
         </Toolbar>
