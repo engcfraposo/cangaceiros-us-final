@@ -1,13 +1,13 @@
-import withRoot from '../../constants/withRoot';
+import withRoot from '../constants/withRoot';
 // --- Post bootstrap -----
 import React from 'react';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
-import Markdown from '../atoms/Markdown';
-import Typography from '../atoms/Typography';
-import AppAppBar from '../templates/AppAppBar';
-import privacy from '../../constants/privacy.md';
-import AppFooter from '../templates/AppFooter';
+import Markdown from '../components/atoms/Markdown';
+import Typography from '../components/atoms/Typography';
+import AppAppBar from '../components/templates/AppAppBar';
+import privacy from '../constants/privacy.md';
+import AppFooter from '../components/templates/AppFooter';
 
 function Privacy() {
   return (

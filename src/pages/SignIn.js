@@ -1,18 +1,17 @@
-import withRoot from '../../constants/withRoot';
+import withRoot from '../constants/withRoot';
 // --- Post bootstrap -----
 import React from 'react';
+import { Field, Form, FormSpy  } from 'react-final-form';
 import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
-import { Field, Form, FormSpy } from 'react-final-form';
-import Typography from '../atoms/Typography';
-import AppFooter from '../templates/AppFooter';
-import AppAppBar from '../templates/AppAppBar';
-import AppForm from '../templates/AppForm';
-import { email, required } from '../../constants/validation';
-import RFTextField from '../organisms/form/RFTextField';
-import FormButton from '../organisms/form/FormButton';
-import FormFeedback from '../organisms/form/FormFeedback';
+import Typography from '../components/atoms/Typography';
+import AppFooter from '../components/templates/AppFooter';
+import AppAppBar from '../components/templates/AppAppBar';
+import AppForm from '../components/templates/AppForm';
+import { email, required } from '../constants/validation';
+import RFTextField from '../components/organisms/form/RFTextField';
+import FormButton from '../components/organisms/form/FormButton';
+import FormFeedback from '../components/organisms/form/FormFeedback';
 
 const useStyles = makeStyles((theme) => ({
   form: {
@@ -27,12 +26,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function SignUp() {
+function SignIn() {
   const classes = useStyles();
   const [sent, setSent] = React.useState(false);
 
   const validate = (values) => {
-    const errors = required(['firstName', 'lastName', 'email', 'password'], values);
+    const errors = required(['email', 'password'], values);
 
     if (!errors.email) {
       const emailError = email(values.email, values);
@@ -54,42 +53,21 @@ function SignUp() {
       <AppForm>
         <React.Fragment>
           <Typography variant="h3" gutterBottom marked="center" align="center">
-            Sign Up
+            Sign In
           </Typography>
           <Typography variant="body2" align="center">
-            <Link href="/premium-themes/onepirate/sign-in/" underline="always">
-              Already have an account?
+            {'Not a member yet? '}
+            <Link href="/premium-themes/onepirate/sign-up/" align="center" underline="always">
+              Sign Up here
             </Link>
           </Typography>
         </React.Fragment>
         <Form onSubmit={handleSubmit} subscription={{ submitting: true }} validate={validate}>
           {({ handleSubmit2, submitting }) => (
             <form onSubmit={handleSubmit2} className={classes.form} noValidate>
-              <Grid container spacing={2}>
-                <Grid item xs={12} sm={6}>
-                  <Field
-                    autoFocus
-                    component={RFTextField}
-                    autoComplete="fname"
-                    fullWidth
-                    label="First name"
-                    name="firstName"
-                    required
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <Field
-                    component={RFTextField}
-                    autoComplete="lname"
-                    fullWidth
-                    label="Last name"
-                    name="lastName"
-                    required
-                  />
-                </Grid>
-              </Grid>
               <Field
                 autoComplete="email"
+                autoFocus
                 component={RFTextField}
                 disabled={submitting || sent}
                 fullWidth
@@ -97,9 +75,11 @@ function SignUp() {
                 margin="normal"
                 name="email"
                 required
+                size="large"
               />
               <Field
                 fullWidth
+                size="large"
                 component={RFTextField}
                 disabled={submitting || sent}
                 required
@@ -121,18 +101,24 @@ function SignUp() {
               <FormButton
                 className={classes.button}
                 disabled={submitting || sent}
+                size="large"
                 color="secondary"
                 fullWidth
               >
-                {submitting || sent ? 'In progress…' : 'Sign Up'}
+                {submitting || sent ? 'In progress…' : 'Sign In'}
               </FormButton>
             </form>
           )}
         </Form>
+        <Typography align="center">
+          <Link underline="always" href="/premium-themes/onepirate/forgot-password/">
+            Forgot password?
+          </Link>
+        </Typography>
       </AppForm>
       <AppFooter />
     </React.Fragment>
   );
 }
 
-export default withRoot(SignUp);
+export default withRoot(SignIn);
