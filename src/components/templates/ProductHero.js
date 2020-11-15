@@ -5,6 +5,9 @@ import Button from '../atoms/Button';
 import Typography from '../atoms/Typography';
 import ProductHeroLayout from './ProductHeroLayout';
 
+import TicketsService from '../../services/tickets.service'
+import AuthService from '../../services/auth.service'
+
 const backgroundImage =
   'https://queropassagem.com.br/blog/wp-content/uploads/2016/05/porto-seguro-bahia-destinos-nordeste.jpg';
 
@@ -30,6 +33,18 @@ const styles = (theme) => ({
 });
 
 function ProductHero(props) {
+  const authService = new AuthService()
+  const ticketsService = new TicketsService()
+
+  function handleClick() {
+    authService.login({ login: 'cangaceirosus@gmail.com', password: 'cangaceirosus' })
+      .then(res => {
+        ticketsService.ticketsList()
+          .then(res => console.log(res))
+      })
+
+
+  }
   const { classes } = props;
 
   return (
@@ -43,12 +58,14 @@ function ProductHero(props) {
         Compre sua passagem com os melhores preços do mercado.
       </Typography>
       <Button
-        style= {{color:'#F05027'}}
+        style={{ color: '#F05027' }}
         variant="contained"
         size="large"
         className={classes.button}
-        component="a"
-        href="/premium-themes/onepirate/sign-up/"
+        component="button"
+
+        // href="/premium-themes/onepirate/sign-up/"
+        onClick={handleClick}
       >
         Registre-se
       </Button>

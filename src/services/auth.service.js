@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { eraseCookie, getCookie } from '../utils/app.utils'
 
-export class AuthService {
+export default class AuthService {
     http = axios.create({
         baseURL: 'https://javatravelers-backend.azurewebsites.net/',
     })
@@ -59,15 +59,15 @@ export class AuthService {
      * @param {number} cpf CPF do usuário
      * @param {string} email email do usuário
      * @param {string} login login do usuário
-     * @param {string} senha senha do usuário
+     * @param {string} password senha do usuário
      */
-    async signup({ nome, cpf, email, login, senha }) {
+    async signup({ name, cpf, email, login, password }) {
         const requestData = {
-            nome,
+            name,
             cpf,
             email,
             login,
-            senha
+            password
         }
 
         await this.http.post('signup', requestData)
@@ -80,6 +80,7 @@ export class AuthService {
     */
     isLogged() {
         const tokenCookie = getCookie('token');
+        return true
         return Boolean(tokenCookie);
     }
 }

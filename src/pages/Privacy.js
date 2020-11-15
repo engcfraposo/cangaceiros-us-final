@@ -4,6 +4,7 @@ import React from 'react';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import Markdown from '../components/atoms/Markdown';
+import AppForm from '../components/templates/AppForm';
 import Typography from '../components/atoms/Typography';
 import AppAppBar from '../components/templates/AppAppBar';
 import privacy from '../constants/privacy.md';
@@ -11,7 +12,7 @@ import AppFooter from '../components/templates/AppFooter';
 
 function Privacy() {
   return (
-    <React.Fragment>
+    <>
       <AppAppBar />
       <Container>
         <Box mt={7} mb={12}>
@@ -22,7 +23,7 @@ function Privacy() {
         </Box>
       </Container>
       <AppFooter />
-    </React.Fragment>
+    </>
   );
 }
 
