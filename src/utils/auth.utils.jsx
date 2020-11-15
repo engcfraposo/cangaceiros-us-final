@@ -1,6 +1,6 @@
 import React from "react";
 import { Redirect, Route } from "react-router-dom";
-import { AuthService } from "../services/auth.services";
+import AuthService from "../services/auth.service";
 
 /**
  * Auth da rota
