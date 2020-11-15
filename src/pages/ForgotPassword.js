@@ -52,11 +52,10 @@ function ForgotPassword() {
       <AppForm>
         <React.Fragment>
           <Typography variant="h3" gutterBottom marked="center" align="center">
-            Forgot your password?
+            Você perdeu a senha?
           </Typography>
           <Typography variant="body2" align="center">
-            {"Enter your email address below and we'll " +
-              'send you a link to reset your password.'}
+            Digite seu e-mail e receba o link para resetar a sua senha.
           </Typography>
         </React.Fragment>
         <Form onSubmit={handleSubmit} subscription={{ submitting: true }} validate={validate}>
@@ -68,7 +67,7 @@ function ForgotPassword() {
                 component={RFTextField}
                 disabled={submitting || sent}
                 fullWidth
-                label="Email"
+                label="E-mail"
                 margin="normal"
                 name="email"
                 required
@@ -90,7 +89,7 @@ function ForgotPassword() {
                 color="secondary"
                 fullWidth
               >
-                {submitting || sent ? 'In progress…' : 'Send reset link'}
+                {submitting || sent ? 'In progress…' : 'Solicitar reset'}
               </FormButton>
             </form>
           )}
