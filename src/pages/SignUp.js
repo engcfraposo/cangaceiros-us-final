@@ -54,11 +54,11 @@ function SignUp() {
       <AppForm>
         <React.Fragment>
           <Typography variant="h3" gutterBottom marked="center" align="center">
-            Sign Up
+            Cadastre-se
           </Typography>
           <Typography variant="body2" align="center">
             <Link href="/login" underline="always">
-              Already have an account?
+              Você já tem cadastro?
             </Link>
           </Typography>
         </React.Fragment>
@@ -72,7 +72,7 @@ function SignUp() {
                     component={RFTextField}
                     autoComplete="fname"
                     fullWidth
-                    label="First name"
+                    label="Primeiro nome"
                     name="firstName"
                     required
                   />
@@ -82,7 +82,7 @@ function SignUp() {
                     component={RFTextField}
                     autoComplete="lname"
                     fullWidth
-                    label="Last name"
+                    label="Segundo Nome"
                     name="lastName"
                     required
                   />
@@ -93,7 +93,7 @@ function SignUp() {
                 component={RFTextField}
                 disabled={submitting || sent}
                 fullWidth
-                label="Email"
+                label="E-mail"
                 margin="normal"
                 name="email"
                 required
@@ -105,7 +105,7 @@ function SignUp() {
                 required
                 name="password"
                 autoComplete="current-password"
-                label="Password"
+                label="Senha"
                 type="password"
                 margin="normal"
               />
@@ -124,7 +124,7 @@ function SignUp() {
                 color="secondary"
                 fullWidth
               >
-                {submitting || sent ? 'In progress…' : 'Sign Up'}
+                {submitting || sent ? 'Em progresso...' : 'Cadastre-se'}
               </FormButton>
             </form>
           )}

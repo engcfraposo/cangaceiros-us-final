@@ -6,7 +6,7 @@ import Box from '@material-ui/core/Box';
 import Markdown from '../components/atoms/Markdown';
 import Typography from '../components/atoms/Typography';
 import AppAppBar from '../components/templates/AppAppBar';
-import privacy from '../constants/privacy.md';
+import privacy from '../constants/privacy-pt.md';
 import AppFooter from '../components/templates/AppFooter';
 
 function Privacy() {
@@ -16,7 +16,7 @@ function Privacy() {
       <Container>
         <Box mt={7} mb={12}>
           <Typography variant="h3" gutterBottom marked="center" align="center">
-            Privacy
+            Termo de Privacidade
           </Typography>
           <Markdown>{privacy}</Markdown>
         </Box>
