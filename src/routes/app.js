@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Home from '../pages/Home';
 import LoginPage from '../pages/SignIn';
 import SignUpPage from '../pages/SignUp';
-import Test from '../pages/_test_';
+import Test from '../pages/CardList';
 
 import AuthRoute from '../utils/auth.utils';
 import { AuthPage } from './auth';
