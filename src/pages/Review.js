@@ -5,6 +5,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Grid from '@material-ui/core/Grid';
+import AppAppBar from '../components/templates/AppAppBar';
 
 const products = [
   { name: 'Product 1', desc: 'A nice thing', price: '$9.99' },
@@ -37,6 +38,8 @@ export default function Review() {
   const classes = useStyles();
 
   return (
+    <>
+    <AppAppBar />
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
         Ordem de compra
@@ -58,7 +61,7 @@ export default function Review() {
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
           <Typography variant="h6" gutterBottom className={classes.title}>
-          Remessa
+            Remessa
           </Typography>
           <Typography gutterBottom>John Smith</Typography>
           <Typography gutterBottom>{addresses.join(', ')}</Typography>
@@ -82,5 +85,7 @@ export default function Review() {
         </Grid>
       </Grid>
     </React.Fragment>
+  </>
   );
+
 }

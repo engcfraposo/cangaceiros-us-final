@@ -47,6 +47,8 @@ function ForgotPassword() {
   };
 
   return (
+    <>
+    <AppAppBar />
     <React.Fragment>
       <AppAppBar />
       <AppForm>
@@ -97,6 +99,7 @@ function ForgotPassword() {
       </AppForm>
       <AppFooter />
     </React.Fragment>
+    </>
   );
 }
 

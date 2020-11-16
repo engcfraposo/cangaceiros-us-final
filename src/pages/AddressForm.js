@@ -5,6 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import AppAppBar from '../components/templates/AppAppBar';
+import AppFooter from '../components/templates/AppFooter';
 
 export default function AddressForm() {
   return (
@@ -96,6 +97,8 @@ export default function AddressForm() {
         </Grid>
       </Grid>
     </React.Fragment>
+    <AppFooter />
     </>
   );
+
 }

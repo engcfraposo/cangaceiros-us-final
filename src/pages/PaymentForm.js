@@ -4,9 +4,12 @@ import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import AppAppBar from '../components/templates/AppAppBar'
 
 export default function PaymentForm() {
   return (
+    <>
+    <AppAppBar />
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
         Metodo de Pagamento
@@ -45,5 +48,6 @@ export default function PaymentForm() {
         </Grid>
       </Grid>
     </React.Fragment>
+    </>
   );
 }

@@ -1,8 +1,8 @@
+import withRoot from '../constants/withRoot';
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
+
 import Paper from '@material-ui/core/Paper';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
@@ -13,12 +13,13 @@ import Typography from '@material-ui/core/Typography';
 import AddressForm from './AddressForm';
 import PaymentForm from './PaymentForm';
 import Review from './Review';
+import AppAppBar from '../components/templates/AppAppBar';
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
+      <Link color="inherit" href="https://github.com/engcfraposo/cangaceiros-us-final/">
         Cangaceiros US
       </Link>{' '}
       {new Date().getFullYear()}
@@ -79,9 +80,10 @@ function getStepContent(step) {
   }
 }
 
-export default function Checkout() {
+ function Checkout() {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
+  
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
@@ -94,13 +96,7 @@ export default function Checkout() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <AppBar position="absolute" color="default" className={classes.appBar}>
-        <Toolbar>
-          <Typography variant="h6" color="inherit" noWrap>
-            Cangaceiros US
-          </Typography>
-        </Toolbar>
-      </AppBar>
+      <AppAppBar />
       <main className={classes.layout}>
         <Paper className={classes.paper}>
           <Typography component="h1" variant="h4" align="center">
@@ -117,33 +113,33 @@ export default function Checkout() {
             {activeStep === steps.length ? (
               <React.Fragment>
                 <Typography variant="h5" gutterBottom>
-                Obrigado pelo seu pedido.
+                  Obrigado pelo seu pedido.
                 </Typography>
                 <Typography variant="subtitle1">
-                O número do seu pedido é # 2001539. Enviamos a confirmação do seu pedido por e-mail e iremos
-                enviará a você uma atualização quando seu pedido for enviado.
+                  O número do seu pedido é # 2001539. Enviamos a confirmação do seu pedido por e-mail e iremos
+                  enviará a você uma atualização quando seu pedido for enviado.
                 </Typography>
               </React.Fragment>
             ) : (
-              <React.Fragment>
-                {getStepContent(activeStep)}
-                <div className={classes.buttons}>
-                  {activeStep !== 0 && (
-                    <Button onClick={handleBack} className={classes.button}>
-                      Voltar
+                <React.Fragment>
+                  {getStepContent(activeStep)}
+                  <div className={classes.buttons}>
+                    {activeStep !== 0 && (
+                      <Button onClick={handleBack} className={classes.button}>
+                        Voltar
+                      </Button>
+                    )}
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      onClick={handleNext}
+                      className={classes.button}
+                    >
+                      {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
                     </Button>
-                  )}
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={handleNext}
-                    className={classes.button}
-                  >
-                    {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
-                  </Button>
-                </div>
-              </React.Fragment>
-            )}
+                  </div>
+                </React.Fragment>
+              )}
           </React.Fragment>
         </Paper>
         <Copyright />
@@ -151,3 +147,4 @@ export default function Checkout() {
     </React.Fragment>
   );
 }
+export default withRoot (Checkout)
