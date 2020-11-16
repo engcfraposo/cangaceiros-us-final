@@ -63,11 +63,11 @@ export default class AuthService {
      */
     async signup({ name, cpf, email, login, password }) {
         const requestData = {
-            name,
+            nome: name,
             cpf,
             email,
             login,
-            password
+            senha: password
         }
 
         await this.http.post('signup', requestData)
