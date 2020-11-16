@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Home from '../pages/Home';
 import LoginPage from '../pages/SignIn';
 import SignUpPage from '../pages/SignUp';
+import Test from '../pages/_test_';
 
 import AuthRoute from '../utils/auth.utils';
 import { AuthPage } from './auth';
@@ -19,6 +20,7 @@ const App = () => {
                     <Route exact path="/" component={Home} />
                     <Route path='/login' component={LoginPage} />
                     <Route path='/signup' component={SignUpPage} />
+                    <Route path='/_tests_' component={Test} />
                     <AuthRoute redirectTo="/login" path="/" component={AuthPage} />
                 </Switch>
             </Router>

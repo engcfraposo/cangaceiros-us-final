@@ -1,8 +1,6 @@
 import withRoot from '../constants/withRoot';
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-
 import Paper from '@material-ui/core/Paper';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
@@ -14,6 +12,8 @@ import AddressForm from './AddressForm';
 import PaymentForm from './PaymentForm';
 import Review from './Review';
 import AppAppBar from '../components/templates/AppAppBar';
+import AppForm from '../components/templates/AppForm';
+
 
 function Copyright() {
   return (
@@ -95,10 +95,9 @@ function getStepContent(step) {
 
   return (
     <React.Fragment>
-      <CssBaseline />
       <AppAppBar />
       <main className={classes.layout}>
-        <Paper className={classes.paper}>
+        <AppForm>
           <Typography component="h1" variant="h4" align="center">
             Checkout
           </Typography>
@@ -141,7 +140,7 @@ function getStepContent(step) {
                 </React.Fragment>
               )}
           </React.Fragment>
-        </Paper>
+        </AppForm>
         <Copyright />
       </main>
     </React.Fragment>
