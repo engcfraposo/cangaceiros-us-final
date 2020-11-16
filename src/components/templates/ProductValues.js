@@ -4,6 +4,9 @@ import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Typography from '../atoms/Typography';
+import aviaovoando from '../../assets/img/svg/001-aviao-voando.svg';
+import bilhete from '../../assets/img/svg/002-bilhete.svg';
+import telefone from '../../assets/img/svg/003-telefone.svg';
 
 const styles = (theme) => ({
   root: {
@@ -44,7 +47,7 @@ function ProductValues(props) {
     <section className={classes.root}>
       <Container className={classes.container}>
         <img
-          src="/static/themes/onepirate/productCurvyLines.png"
+
           className={classes.curvyLines}
           alt="curvy lines"
         />
@@ -53,15 +56,15 @@ function ProductValues(props) {
             <div className={classes.item}>
               <img
                 className={classes.image}
-                src="/static/themes/onepirate/productValues1.svg"
-                alt="suitcase"
+                src={aviaovoando}
+                alt="avião"
               />
               <Typography variant="h6" className={classes.title}>
-                The best luxury hotels
+                As melhores viagens
               </Typography>
               <Typography variant="h5">
-                {'From the latest trendy boutique hotel to the iconic palace with XXL pool'}
-                {', go for a mini-vacation just a few subway stops away from your home.'}
+              A Cangaceiros US é a melhor plataforma para você pesquisar e comprar passagens aéreas promocionais e
+              viajar pelo Brasil e pelo mundo.
               </Typography>
             </div>
           </Grid>
@@ -69,15 +72,15 @@ function ProductValues(props) {
             <div className={classes.item}>
               <img
                 className={classes.image}
-                src="/static/themes/onepirate/productValues2.svg"
-                alt="graph"
+                src={bilhete}
+                alt="Bilhete"
               />
               <Typography variant="h6" className={classes.title}>
-                New experiences
+              Por que é mais barato voar pela Cangaceiros US?
               </Typography>
               <Typography variant="h5">
-                {'Privatize a pool, take a Japanese bath or wake up in 900m2 of garden… '}
-                {'your Sundays will not be alike.'}
+              Porque emitimos passagem aérea mais barata com as milhas de quem
+              deseja vender e, assim, conseguimos descontos de até 50%.
               </Typography>
             </div>
           </Grid>
@@ -85,15 +88,15 @@ function ProductValues(props) {
             <div className={classes.item}>
               <img
                 className={classes.image}
-                src="/static/themes/onepirate/productValues3.svg"
-                alt="clock"
+                src={telefone}
+                alt="Atendimento"
               />
               <Typography variant="h6" className={classes.title}>
-                Exclusive rates
+              Atendimento 24h
               </Typography>
               <Typography variant="h5">
-                {'By registering, you will access specially negotiated rates '}
-                {'that you will not find anywhere else.'}
+              Além de oferecer passagens aéreas em promoção,
+              cuidamos de todo o processo de emissão para você.
               </Typography>
             </div>
           </Grid>

@@ -1,17 +1,16 @@
-import withRoot from '../modules/withRoot';
+import withRoot from '../constants/withRoot';
 // --- Post bootstrap -----
 import React from 'react';
-import { Field, Form, FormSpy  } from 'react-final-form';
+import { Field, Form, FormSpy } from 'react-final-form';
 import { makeStyles } from '@material-ui/core/styles';
-import Link from '@material-ui/core/Link';
-import Typography from '../atoms/Typography';
-import AppFooter from '../organisms/templates/AppFooter';
-import AppAppBar from '../organisms/templates/AppAppBar';
-import AppForm from '../organisms/templates/AppForm';
-import { email, required } from '../organisms/form/validation';
-import RFTextField from '../organisms/form/RFTextField';
-import FormButton from '../organisms/form/FormButton';
-import FormFeedback from '../organisms/form/FormFeedback';
+import Typography from '../components/atoms/Typography';
+import AppFooter from '../components/templates/AppFooter';
+import AppAppBar from '../components/templates/AppAppBar';
+import AppForm from '../components/templates/AppForm';
+import { email, required } from '../constants/validation';
+import RFTextField from '../components/organisms/form/RFTextField';
+import FormButton from '../components/organisms/form/FormButton';
+import FormFeedback from '../components/organisms/form/FormFeedback';
 
 const useStyles = makeStyles((theme) => ({
   form: {
@@ -26,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function SignIn() {
+function ForgotPassword() {
   const classes = useStyles();
   const [sent, setSent] = React.useState(false);
 
@@ -48,46 +47,33 @@ function SignIn() {
   };
 
   return (
+    <>
+    <AppAppBar />
     <React.Fragment>
       <AppAppBar />
       <AppForm>
         <React.Fragment>
           <Typography variant="h3" gutterBottom marked="center" align="center">
-            Sign In
+            Você perdeu a senha?
           </Typography>
           <Typography variant="body2" align="center">
-            {'Not a member yet? '}
-            <Link href="/premium-themes/onepirate/sign-up/" align="center" underline="always">
-              Sign Up here
-            </Link>
+            Digite seu e-mail e receba o link para resetar a sua senha.
           </Typography>
         </React.Fragment>
         <Form onSubmit={handleSubmit} subscription={{ submitting: true }} validate={validate}>
           {({ handleSubmit2, submitting }) => (
             <form onSubmit={handleSubmit2} className={classes.form} noValidate>
               <Field
-                autoComplete="email"
                 autoFocus
+                autoComplete="email"
                 component={RFTextField}
                 disabled={submitting || sent}
                 fullWidth
-                label="Email"
+                label="E-mail"
                 margin="normal"
                 name="email"
                 required
                 size="large"
-              />
-              <Field
-                fullWidth
-                size="large"
-                component={RFTextField}
-                disabled={submitting || sent}
-                required
-                name="password"
-                autoComplete="current-password"
-                label="Password"
-                type="password"
-                margin="normal"
               />
               <FormSpy subscription={{ submitError: true }}>
                 {({ submitError }) =>
@@ -105,20 +91,16 @@ function SignIn() {
                 color="secondary"
                 fullWidth
               >
-                {submitting || sent ? 'In progress…' : 'Sign In'}
+                {submitting || sent ? 'In progress…' : 'Solicitar reset'}
               </FormButton>
             </form>
           )}
         </Form>
-        <Typography align="center">
-          <Link underline="always" href="/premium-themes/onepirate/forgot-password/">
-            Forgot password?
-          </Link>
-        </Typography>
       </AppForm>
       <AppFooter />
     </React.Fragment>
+    </>
   );
 }
 
-export default withRoot(SignIn);
+export default withRoot(ForgotPassword);

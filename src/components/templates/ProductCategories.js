@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Container from '@material-ui/core/Container';
-import Typography from '../../atoms/Typography';
+import Typography from '../atoms/Typography';
 
 const styles = (theme) => ({
   root: {
@@ -145,8 +145,8 @@ function ProductCategories(props) {
 
   return (
     <Container className={classes.root} component="section">
-      <Typography variant="h4" marked="center" align="center" component="h2">
-        For all tastes and all desires
+      <Typography variant="h2" marked="center" align="center" component="h2">
+        Escolha sua próxima viagem
       </Typography>
       <div className={classes.images}>
         {images.map((image) => (

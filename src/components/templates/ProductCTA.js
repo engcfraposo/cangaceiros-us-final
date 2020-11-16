@@ -78,14 +78,14 @@ function ProductCTA(props) {
           <div className={classes.card}>
             <form onSubmit={handleSubmit} className={classes.cardContent}>
               <Typography variant="h2" component="h2" gutterBottom>
-                Receive offers
+                Um xodó de promoções!
               </Typography>
               <Typography variant="h5">
-                Taste the holidays of the everyday close to home.
+                Receba nossas ofertas arretadas!
               </Typography>
-              <TextField noBorder className={classes.textField} placeholder="Your email" />
+              <TextField noBorder className={classes.textField} placeholder="Coloque seu e-mail" />
               <Button type="submit" color="primary" variant="contained" className={classes.button}>
-                Keep me updated
+                Inscreva-se
               </Button>
             </form>
           </div>
@@ -94,7 +94,7 @@ function ProductCTA(props) {
           <Hidden smDown>
             <div className={classes.imageDots} />
             <img
-              src="https://images.unsplash.com/photo-1527853787696-f7be74f2e39a?auto=format&fit=crop&w=750&q=80"
+              src="https://www.temporadalivre.com/blog-media/posts/cover/10001/size_800_as-10-praias-mais-bonitas-do-nordeste-brasileiro-e3f91d8d.jpg"
               alt="call to action"
               className={classes.image}
             />
@@ -104,7 +104,7 @@ function ProductCTA(props) {
       <Snackbar
         open={open}
         onClose={handleClose}
-        message="We will send you our best offers, once a week."
+        message="Agora você vai receber todas as nossas novidades"
       />
     </Container>
   );
