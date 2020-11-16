@@ -1,17 +1,18 @@
 import withRoot from '../constants/withRoot';
 // --- Post bootstrap -----
-import React from 'react';
-import { Field, Form, FormSpy  } from 'react-final-form';
+import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Link from '@material-ui/core/Link';
+import {useFormik} from 'formik';
+import * as Yup from 'yup';
 import Typography from '../components/atoms/Typography';
+import TextField from '../components/atoms/TextField';
 import AppFooter from '../components/templates/AppFooter';
 import AppAppBar from '../components/templates/AppAppBar';
 import AppForm from '../components/templates/AppForm';
-import { email, required } from '../constants/validation';
-import RFTextField from '../components/organisms/form/RFTextField';
 import FormButton from '../components/organisms/form/FormButton';
 import FormFeedback from '../components/organisms/form/FormFeedback';
+import AuthService from '../services/auth.service';
 
 const useStyles = makeStyles((theme) => ({
   form: {
@@ -28,27 +29,35 @@ const useStyles = makeStyles((theme) => ({
 
 function SignIn() {
   const classes = useStyles();
-  const [sent, setSent] = React.useState(false);
+  const [sent, setSent] = useState(false);
 
-  const validate = (values) => {
-    const errors = required(['email', 'password'], values);
+  const authService = new AuthService()
 
-    if (!errors.email) {
-      const emailError = email(values.email, values);
-      if (emailError) {
-        errors.email = email(values.email, values);
-      }
-    }
+  const formik = useFormik({  
+    initialValues: {
+      email: '',
+      password: '',
+    },
+    validationSchema: Yup.object().shape({
+      email: Yup.string().email('Email invalido').required('Requerido'),
+      password: Yup.string().required('Requerido')
+    }),
+    onSubmit: values => {
+      setSent(true)
+      //alert(JSON.stringify(values, null, 2));
+      authService.login({
+        login: values.email,
+        password: values.password
+      });
+      return setSent(false)
+    },
+  })
 
-    return errors;
-  };
-
-  const handleSubmit = () => {
-    setSent(true);
-  };
+  const { errors, touched }= formik
+  
 
   return (
-    <React.Fragment>
+    <>
       <AppAppBar />
       <AppForm>
         <React.Fragment>
@@ -62,54 +71,45 @@ function SignIn() {
             </Link>
           </Typography>
         </React.Fragment>
-        <Form onSubmit={handleSubmit} subscription={{ submitting: true }} validate={validate}>
-          {({ handleSubmit2, submitting }) => (
-            <form onSubmit={handleSubmit2} className={classes.form} noValidate>
-              <Field
-                autoComplete="email"
+            <form onSubmit={formik.handleSubmit} className={classes.form}>
+              <TextField
                 autoFocus
-                component={RFTextField}
-                disabled={submitting || sent}
                 fullWidth
+                touched={errors.password && touched.password}
                 label="E-mail"
                 margin="normal"
                 name="email"
+                type="email"
                 required
                 size="large"
+                onChange={formik.handleChange}
+                value={formik.values.email}
               />
-              <Field
+               { errors.email && touched.email && <FormFeedback>{ errors.email }</FormFeedback>}
+              <TextField
+                autoFocus
                 fullWidth
-                size="large"
-                component={RFTextField}
-                disabled={submitting || sent}
-                required
-                name="Senha"
-                autoComplete="current-password"
-                label="Senha"
-                type="password"
+                touched={errors.password && touched.password}
+                label="Password"
                 margin="normal"
+                name="password"
+                id="password"
+                required
+                size="large"
+                type="password"
+                onChange={formik.handleChange}
+                value={formik.values.password}
               />
-              <FormSpy subscription={{ submitError: true }}>
-                {({ submitError }) =>
-                  submitError ? (
-                    <FormFeedback className={classes.feedback} error>
-                      {submitError}
-                    </FormFeedback>
-                  ) : null
-                }
-              </FormSpy>
+              { errors.password && touched.password && <FormFeedback>{ errors.password }</FormFeedback>}
               <FormButton
                 className={classes.button}
-                disabled={submitting || sent}
                 size="large"
                 color="secondary"
                 fullWidth
               >
-                {submitting || sent ? 'Em progresso...' : 'Logar'}
+                {sent?'Em progresso...':'Logar'}
               </FormButton>
             </form>
-          )}
-        </Form>
         <Typography align="center">
           <Link underline="always" href="/signup/">
             Não tem cadastro?
@@ -117,7 +117,7 @@ function SignIn() {
         </Typography>
       </AppForm>
       <AppFooter />
-    </React.Fragment>
+    </>
   );
 }
 

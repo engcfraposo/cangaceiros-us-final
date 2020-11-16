@@ -61,13 +61,13 @@ export default class AuthService {
      * @param {string} login login do usuário
      * @param {string} password senha do usuário
      */
-    async signup({ name, cpf, email, login, password }) {
+    async signup({ nome, cpf, email, login, password }) {
         const requestData = {
-            name,
+            nome,
             cpf,
             email,
             login,
-            password
+            senha: password,
         }
 
         await this.http.post('signup', requestData)
@@ -80,7 +80,7 @@ export default class AuthService {
     */
     isLogged() {
         const tokenCookie = getCookie('token');
-        return true
+        //return true
         return Boolean(tokenCookie);
     }
 }
