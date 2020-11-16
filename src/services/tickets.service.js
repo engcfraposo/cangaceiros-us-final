@@ -34,7 +34,7 @@ export default class TicketService {
     async ticketsSearch({ adults, childrens, infants, originCode, destinationCode, departureDate, returnDate, currencyCode, max }) {
         const requestData = {
             adults,
-            childrens,
+            children: childrens,
             infants,
             originCode,
             destinationCode,
@@ -44,8 +44,8 @@ export default class TicketService {
             max,
         }
 
-        await this.http.post('tickets/offers', requestData)
-            .then(res => res)
+        return await this.http.post('tickets/offers', requestData)
+        .then(res => res.data)
     }
 
     /**
@@ -56,7 +56,7 @@ export default class TicketService {
     // TODO: implementar
     async ticketConfirmPrice(data) {
         await this.http.post('tickets/offers/price', data)
-            .then(res => res)
+            .then(res => res.data)
     }
 
     /**
@@ -67,7 +67,7 @@ export default class TicketService {
     // TODO: implementar
     async ticketsAdvancedSearch(data) {
         await this.http.post('tickets/offers/search', data)
-            .then(res => res)
+            .then(res => res.data)
     }
 
 
@@ -102,6 +102,6 @@ export default class TicketService {
         }
 
         await this.http.post('tickets/search/location', requestData)
-            .then(res => res)
+            .then(res => res.data)
     }
 }
