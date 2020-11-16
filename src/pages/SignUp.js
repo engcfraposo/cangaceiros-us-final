@@ -4,14 +4,15 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
-import { Field, Form, FormSpy } from 'react-final-form';
+import {useFormik} from 'formik';
+import * as Yup from 'yup';
+import TextField from '../components/atoms/TextField';
 import Typography from '../components/atoms/Typography';
 import AppFooter from '../components/templates/AppFooter';
 import AppAppBar from '../components/templates/AppAppBar';
 import AppForm from '../components/templates/AppForm';
-import { email, required } from '../constants/validation';
-import RFTextField from '../components/organisms/form/RFTextField';
 import FormButton from '../components/organisms/form/FormButton';
+import AuthService from '../services/auth.service';
 import FormFeedback from '../components/organisms/form/FormFeedback';
 
 const useStyles = makeStyles((theme) => ({
@@ -31,28 +32,42 @@ function SignUp() {
   const classes = useStyles();
   const [sent, setSent] = React.useState(false);
 
-  const validate = (values) => {
-    const errors = required(['firstName', 'lastName', 'email', 'password'], values);
+  const authService = new AuthService()
 
-    if (!errors.email) {
-      const emailError = email(values.email, values);
-      if (emailError) {
-        errors.email = email(values.email, values);
-      }
-    }
+  const formik = useFormik({  
+    initialValues: {
+      nome: '',
+      cpf:'',
+      email: '',
+      password: '',
+    },
+    validationSchema: Yup.object().shape({
+      nome: Yup.string().min(2).required('Requerido'),
+      cpf: Yup.string().max(11).min(11).required('Requerido'),
+      email: Yup.string().email('Email invalido').required('Requerido'),
+      password: Yup.string().required('Requerido')
+    }),
+    onSubmit: values => {
+      setSent(true)
+      //alert(JSON.stringify(values, null, 2));
+      authService.signup({
+        nome: values.nome,
+        cpf: values.cpf,
+        email: values.email,
+        login: values.email,
+        password: values.password
+      });
+      return setSent(false)
+    },
+  })
 
-    return errors;
-  };
-
-  const handleSubmit = () => {
-    setSent(true);
-  };
+  const { errors, touched } = formik
 
   return (
-    <React.Fragment>
+    <>
       <AppAppBar />
       <AppForm>
-        <React.Fragment>
+        <>
           <Typography variant="h3" gutterBottom marked="center" align="center">
             Cadastre-se
           </Typography>
@@ -61,77 +76,85 @@ function SignUp() {
               Você já tem cadastro?
             </Link>
           </Typography>
-        </React.Fragment>
-        <Form onSubmit={handleSubmit} subscription={{ submitting: true }} validate={validate}>
-          {({ handleSubmit2, submitting }) => (
-            <form onSubmit={handleSubmit2} className={classes.form} noValidate>
+        </>
+            <form onSubmit={formik.handleSubmit} className={classes.form}>
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
-                  <Field
-                    autoFocus
-                    component={RFTextField}
-                    autoComplete="fname"
-                    fullWidth
-                    label="Primeiro nome"
-                    name="firstName"
-                    required
-                  />
+                <TextField
+                  autoFocus
+                  fullWidth
+                  touched={errors.nome && touched.nome}
+                  label="Nome"
+                  margin="normal"
+                  name="nome"
+                  id="nome"
+                  required
+                  size="large"
+                  onChange={formik.handleChange}
+                  value={formik.values.nome}
+                />
+                { errors.nome && touched.nome && <FormFeedback>{ errors.nome }</FormFeedback>}
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                  <Field
-                    component={RFTextField}
-                    autoComplete="lname"
-                    fullWidth
-                    label="Segundo Nome"
-                    name="lastName"
-                    required
-                  />
+                <TextField
+                  autoFocus
+                  fullWidth
+                  touched={errors.cpf && touched.cpf}
+                  label="CPF(Só numeros)"
+                  margin="normal"
+                  name="cpf"
+                  id="cpf"
+                  maxlength={11}
+                  required
+                  size="large"
+                  onChange={formik.handleChange}
+                  value={formik.values.cpf}
+                />
+                { errors.cpf && touched.cpf && <FormFeedback>{ errors.cpf }</FormFeedback>}
                 </Grid>
               </Grid>
-              <Field
-                autoComplete="email"
-                component={RFTextField}
-                disabled={submitting || sent}
-                fullWidth
-                label="E-mail"
-                margin="normal"
-                name="email"
-                required
-              />
-              <Field
-                fullWidth
-                component={RFTextField}
-                disabled={submitting || sent}
-                required
-                name="password"
-                autoComplete="current-password"
-                label="Senha"
-                type="password"
-                margin="normal"
-              />
-              <FormSpy subscription={{ submitError: true }}>
-                {({ submitError }) =>
-                  submitError ? (
-                    <FormFeedback className={classes.feedback} error>
-                      {submitError}
-                    </FormFeedback>
-                  ) : null
-                }
-              </FormSpy>
+                <TextField
+                  autoFocus
+                  fullWidth
+                  touched={errors.email && touched.email}
+                  label="E-mail"
+                  margin="normal"
+                  name="email"
+                  id="email"
+                  type="email"
+                  required
+                  size="large"
+                  onChange={formik.handleChange}
+                  value={formik.values.email}
+                />
+                { errors.email && touched.email && <FormFeedback>{ errors.email }</FormFeedback>}              
+                <TextField
+                  autoFocus
+                  fullWidth
+                  touched={errors.password && touched.password}
+                  label="Password"
+                  margin="normal"
+                  name="password"
+                  id="password"
+                  required
+                  size="large"
+                  type="password"
+                  onChange={formik.handleChange}
+                  value={formik.values.password}
+                />
+                { errors.password && touched.password && <FormFeedback>{ errors.password }</FormFeedback>}
               <FormButton
                 className={classes.button}
-                disabled={submitting || sent}
+                size="large"
                 color="secondary"
                 fullWidth
               >
-                {submitting || sent ? 'Em progresso...' : 'Cadastre-se'}
+                {sent?'Em progresso...':'Cadastrado'}
               </FormButton>
             </form>
-          )}
-        </Form>
       </AppForm>
       <AppFooter />
-    </React.Fragment>
+    </>
   );
 }
 
