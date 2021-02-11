@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { withStyles } from '@material-ui/core/styles';
-import Typography from '../../atoms/Typography';
+import Typography from '../../atoms/Typography/Typography';
 
 const styles = (theme) => ({
   root: {
